@@ -15,7 +15,7 @@
   "containerDefinitions": [
     {
       "name": "zitadel",
-      "image": "908590140418.dkr.ecr.us-east-1.amazonaws.com/netwire-auth:netwire-32b5f7e64",
+      "image": "908590140418.dkr.ecr.us-east-1.amazonaws.com/netwire-auth:netwire-1029ce026",
       "essential": true,
       "command": [
         "start-from-setup",
@@ -163,6 +163,10 @@
         {
           "name": "ZITADEL_LOG_LEVEL",
           "value": "info"
+        },
+        {
+          "name": "ZITADEL_SYSTEMAPIUSERS",
+          "value": "{\"hive\": {\"KeyData\": \"LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS0KTUlJQklqQU5CZ2txaGtpRzl3MEJBUUVGQUFPQ0FROEFNSUlCQ2dLQ0FRRUF6ZGp1ZVowWXo4ejQ4M2swVjNSbwowa1BLUVAwbDBLQmZYVnhUZFF6UVBtLytZb0plZ21scFpqaER2VjJVUHljSUFGNFpmSUxJODlyUGhSWWJKT0RUCjliUU5FalBIN2VvYmFtM3NvVEdDdHdFeGNEcEQvUHQ4ek4zQnFsVU9raGM1SmMvdHJHWmwwcC9SODBMbUhEOFEKYUd3c2dUcEsyVUVqR0NJZk5DUUlQQ0Y2UnZiSW9yZ3YwbDdYb1ZvZ3FBOUtWYWl5NXZtcllVbkhkaWI2UDRpWgo3S2hIb05VckpWcEVZZEdmMkNZS1BXWXNEeVNrR05sSjRMRUdTRENqZE9TdFg0bXRLaXpGcGp0YkVaY3M0cEw5ClNZNWx0Ly83OWU2MGEzblNKRjBuK256cXZWMkhXUUo0WFhDRC9xOGtadG1FV1F0b0pDc2dURWNtS0g2UDlBdEMKU3dJREFRQUIKLS0tLS1FTkQgUFVCTElDIEtFWS0tLS0tCg==\"}}"
         }
       ],
       "secrets": [
@@ -206,7 +210,7 @@
     },
     {
       "name": "login",
-      "image": "908590140418.dkr.ecr.us-east-1.amazonaws.com/netwire-auth-login:netwire-32b5f7e64",
+      "image": "908590140418.dkr.ecr.us-east-1.amazonaws.com/netwire-auth-login:netwire-1029ce026",
       "essential": true,
       "portMappings": [
         {
