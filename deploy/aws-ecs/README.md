@@ -11,7 +11,7 @@ shared `valuesetters` application load balancer.
 | Database | Aurora PostgreSQL cluster `valuesetters`, database `netwire_auth_db`, role `auth_service_user`, `sslmode=require` |
 | Secrets | Secrets Manager `netwire/zitadel/{masterkey,db-password,admin-password,login-client-pat,login-cookie-secret,system-user-hive-key}` |
 | System API user | `hive` (RSA key in `netwire/zitadel/system-user-hive-key`, public key in the task definition as `ZITADEL_SYSTEMAPIUSERS`); signs RS256 JWTs (`iss`=`sub`=`hive`, `aud`=`https://auth.netwire.com`) for admin/system API automation such as branding |
-| ALB rules (443) | prio 30 `auth.netwire.com` + `/ui/v2/login*` -> tg `netwire-auth-login`; prio 31 `/` -> 302 `/ui/v2/login/loginname`; prio 32 host -> tg `netwire-auth`. The legacy `netwire.com, *.netwire.com` rule was moved from prio 18 to 33 so it no longer shadows this host. |
+| ALB rules (443) | prio 30 `auth.netwire.com` + `/ui/v2/login*` -> tg `netwire-auth-login`; prio 31 `/` -> 302 `/ui/console`; prio 32 host -> tg `netwire-auth`. The legacy `netwire.com, *.netwire.com` rule was moved from prio 18 to 33 so it no longer shadows this host. |
 | DNS | Netlify zone `netwire.com`, CNAME `auth` -> ALB hostname |
 | Logs | CloudWatch `/ecs/netwire-auth`, `/ecs/netwire-auth-login` |
 
