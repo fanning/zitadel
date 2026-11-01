@@ -1,0 +1,282 @@
+{
+  "family": "netwire-auth",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+  "cpu": "1024",
+  "memory": "2048",
+  "runtimePlatform": {
+    "cpuArchitecture": "X86_64",
+    "operatingSystemFamily": "LINUX"
+  },
+  "executionRoleArn": "arn:aws:iam::908590140418:role/HiveskillECSRole",
+  "taskRoleArn": "arn:aws:iam::908590140418:role/HiveskillECSRole",
+  "containerDefinitions": [
+    {
+      "name": "zitadel",
+      "image": "908590140418.dkr.ecr.us-east-1.amazonaws.com/netwire-auth:netwire-6b2afcd",
+      "essential": true,
+      "command": [
+        "start-from-setup",
+        "--masterkeyFromEnv",
+        "--tlsMode",
+        "external"
+      ],
+      "portMappings": [
+        {
+          "containerPort": 8080,
+          "protocol": "tcp",
+          "name": "zitadel-8080",
+          "appProtocol": "http"
+        }
+      ],
+      "environment": [
+        {
+          "name": "ZITADEL_PORT",
+          "value": "8080"
+        },
+        {
+          "name": "ZITADEL_EXTERNALDOMAIN",
+          "value": "auth.netwire.com"
+        },
+        {
+          "name": "ZITADEL_EXTERNALPORT",
+          "value": "443"
+        },
+        {
+          "name": "ZITADEL_EXTERNALSECURE",
+          "value": "true"
+        },
+        {
+          "name": "ZITADEL_TLS_ENABLED",
+          "value": "false"
+        },
+        {
+          "name": "ZITADEL_DATABASE_POSTGRES_HOST",
+          "value": "valuesetters.cluster-c9cfh2f44bse.us-east-1.rds.amazonaws.com"
+        },
+        {
+          "name": "ZITADEL_DATABASE_POSTGRES_PORT",
+          "value": "5432"
+        },
+        {
+          "name": "ZITADEL_DATABASE_POSTGRES_DATABASE",
+          "value": "netwire_auth_db"
+        },
+        {
+          "name": "ZITADEL_DATABASE_POSTGRES_USER_USERNAME",
+          "value": "auth_service_user"
+        },
+        {
+          "name": "ZITADEL_DATABASE_POSTGRES_USER_SSL_MODE",
+          "value": "require"
+        },
+        {
+          "name": "ZITADEL_DATABASE_POSTGRES_ADMIN_USERNAME",
+          "value": "auth_service_user"
+        },
+        {
+          "name": "ZITADEL_DATABASE_POSTGRES_ADMIN_SSL_MODE",
+          "value": "require"
+        },
+        {
+          "name": "ZITADEL_DATABASE_POSTGRES_ADMIN_EXISTINGDATABASE",
+          "value": "netwire_auth_db"
+        },
+        {
+          "name": "ZITADEL_DATABASE_POSTGRES_MAXOPENCONNS",
+          "value": "20"
+        },
+        {
+          "name": "ZITADEL_DATABASE_POSTGRES_MAXIDLECONNS",
+          "value": "10"
+        },
+        {
+          "name": "ZITADEL_FIRSTINSTANCE_INSTANCENAME",
+          "value": "Netwire"
+        },
+        {
+          "name": "ZITADEL_FIRSTINSTANCE_ORG_NAME",
+          "value": "Netwire"
+        },
+        {
+          "name": "ZITADEL_FIRSTINSTANCE_ORG_HUMAN_USERNAME",
+          "value": "admin"
+        },
+        {
+          "name": "ZITADEL_FIRSTINSTANCE_ORG_HUMAN_FIRSTNAME",
+          "value": "Netwire"
+        },
+        {
+          "name": "ZITADEL_FIRSTINSTANCE_ORG_HUMAN_LASTNAME",
+          "value": "Admin"
+        },
+        {
+          "name": "ZITADEL_FIRSTINSTANCE_ORG_HUMAN_EMAIL_ADDRESS",
+          "value": "hive@hiveskill.com"
+        },
+        {
+          "name": "ZITADEL_FIRSTINSTANCE_ORG_HUMAN_EMAIL_VERIFIED",
+          "value": "true"
+        },
+        {
+          "name": "ZITADEL_FIRSTINSTANCE_ORG_HUMAN_PASSWORDCHANGEREQUIRED",
+          "value": "true"
+        },
+        {
+          "name": "ZITADEL_FIRSTINSTANCE_ORG_LOGINCLIENT_MACHINE_USERNAME",
+          "value": "login-client"
+        },
+        {
+          "name": "ZITADEL_FIRSTINSTANCE_ORG_LOGINCLIENT_MACHINE_NAME",
+          "value": "Netwire login client"
+        },
+        {
+          "name": "ZITADEL_FIRSTINSTANCE_ORG_LOGINCLIENT_PAT_EXPIRATIONDATE",
+          "value": "2099-01-01T00:00:00Z"
+        },
+        {
+          "name": "ZITADEL_DEFAULTINSTANCE_FEATURES_LOGINV2_REQUIRED",
+          "value": "true"
+        },
+        {
+          "name": "ZITADEL_DEFAULTINSTANCE_FEATURES_LOGINV2_BASEURI",
+          "value": "https://auth.netwire.com/ui/v2/login/"
+        },
+        {
+          "name": "ZITADEL_OIDC_DEFAULTLOGINURLV2",
+          "value": "https://auth.netwire.com/ui/v2/login/login?authRequest="
+        },
+        {
+          "name": "ZITADEL_OIDC_DEFAULTLOGOUTURLV2",
+          "value": "https://auth.netwire.com/ui/v2/login/logout?post_logout_redirect="
+        },
+        {
+          "name": "ZITADEL_SAML_DEFAULTLOGINURLV2",
+          "value": "https://auth.netwire.com/ui/v2/login/login?samlRequest="
+        },
+        {
+          "name": "ZITADEL_LOGSTORE_ACCESS_STDOUT_ENABLED",
+          "value": "true"
+        },
+        {
+          "name": "ZITADEL_LOG_LEVEL",
+          "value": "info"
+        }
+      ],
+      "secrets": [
+        {
+          "name": "ZITADEL_MASTERKEY",
+          "valueFrom": "arn:aws:secretsmanager:us-east-1:908590140418:secret:netwire/zitadel/masterkey"
+        },
+        {
+          "name": "ZITADEL_DATABASE_POSTGRES_USER_PASSWORD",
+          "valueFrom": "arn:aws:secretsmanager:us-east-1:908590140418:secret:netwire/zitadel/db-password"
+        },
+        {
+          "name": "ZITADEL_DATABASE_POSTGRES_ADMIN_PASSWORD",
+          "valueFrom": "arn:aws:secretsmanager:us-east-1:908590140418:secret:netwire/zitadel/db-password"
+        },
+        {
+          "name": "ZITADEL_FIRSTINSTANCE_ORG_HUMAN_PASSWORD",
+          "valueFrom": "arn:aws:secretsmanager:us-east-1:908590140418:secret:netwire/zitadel/admin-password"
+        }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/netwire-auth",
+          "awslogs-create-group": "true",
+          "awslogs-region": "us-east-1",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
+      "healthCheck": {
+        "command": [
+          "CMD",
+          "/app/zitadel",
+          "ready"
+        ],
+        "interval": 30,
+        "timeout": 10,
+        "retries": 3,
+        "startPeriod": 120
+      }
+    },
+    {
+      "name": "login",
+      "image": "908590140418.dkr.ecr.us-east-1.amazonaws.com/netwire-auth-login:netwire-6b2afcd",
+      "essential": true,
+      "portMappings": [
+        {
+          "containerPort": 3000,
+          "protocol": "tcp",
+          "name": "login-3000",
+          "appProtocol": "http"
+        }
+      ],
+      "environment": [
+        {
+          "name": "ZITADEL_API_URL",
+          "value": "http://localhost:8080"
+        },
+        {
+          "name": "NEXT_PUBLIC_BASE_PATH",
+          "value": "/ui/v2/login"
+        },
+        {
+          "name": "PORT",
+          "value": "3000"
+        },
+        {
+          "name": "HOSTNAME",
+          "value": "0.0.0.0"
+        },
+        {
+          "name": "CUSTOM_REQUEST_HEADERS",
+          "value": "Host:auth.netwire.com,X-Forwarded-Proto:https"
+        },
+        {
+          "name": "NEXT_PUBLIC_THEME_APPEARANCE",
+          "value": "light"
+        }
+      ],
+      "secrets": [
+        {
+          "name": "ZITADEL_SERVICE_USER_TOKEN",
+          "valueFrom": "arn:aws:secretsmanager:us-east-1:908590140418:secret:netwire/zitadel/login-client-pat"
+        },
+        {
+          "name": "ZITADEL_SESSION_COOKIE_SECRET",
+          "valueFrom": "arn:aws:secretsmanager:us-east-1:908590140418:secret:netwire/zitadel/login-cookie-secret"
+        }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/netwire-auth-login",
+          "awslogs-create-group": "true",
+          "awslogs-region": "us-east-1",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
+      "dependsOn": [
+        {
+          "containerName": "zitadel",
+          "condition": "HEALTHY"
+        }
+      ]
+    }
+  ],
+  "tags": [
+    {
+      "key": "coordinator",
+      "value": "netwire"
+    },
+    {
+      "key": "service",
+      "value": "zitadel"
+    }
+  ]
+}
