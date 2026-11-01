@@ -1,7 +1,7 @@
 {
   "common": {
     "back": "Geri",
-    "title": "Zitadel ile Giriş"
+    "title": "Netwire ile Giriş"
   },
   "accounts": {
     "title": "Hesaplar",
@@ -324,7 +324,7 @@
       "description": "Kayıt olmak için e-posta, ad ve soyadı sağlayın."
     },
     "title": "Kayıt",
-    "description": "Zitadel hesabınızı oluşturun.",
+    "description": "Netwire hesabınızı oluşturun.",
     "noMethodAvailableWarning": "Kullanılabilir kimlik doğrulama yöntemi yok. Lütfen yöneticinizle iletişime geçin.",
     "selectMethod": "Kimlik doğrulaması yapmak istediğiniz yöntemi seçin",
     "agreeTo": "Kayıt olmak için şartları ve koşulları kabul etmelisiniz",
@@ -452,7 +452,7 @@
     "request": {
       "title": "{appName} bağlanmak istiyor",
       "description": "{appName} şunlara erişim sahibi olacak:",
-      "disclaimer": "İzin Ver'e tıklayarak, {appName} ve Zitadel'in bilgilerinizi kendi hizmet şartları ve gizlilik politikalarına uygun olarak kullanmasına izin vermiş olursunuz. Bu erişimi istediğiniz zaman iptal edebilirsiniz.",
+      "disclaimer": "İzin Ver'e tıklayarak, {appName} ve Netwire'in bilgilerinizi kendi hizmet şartları ve gizlilik politikalarına uygun olarak kullanmasına izin vermiş olursunuz. Bu erişimi istediğiniz zaman iptal edebilirsiniz.",
       "submit": "İzin Ver",
       "deny": "Reddet"
     },

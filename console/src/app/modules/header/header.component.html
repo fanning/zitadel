@@ -26,9 +26,9 @@
       } @else {
         <a class="title" [routerLink]="(authService.zitadelPermissions | async)?.length ? ['/'] : ['/users', 'me']">
           @if (isDarkTheme) {
-            <img class="logo" alt="zitadel logo" src="./assets/images/zitadel-logo-solo-light.svg" />
+            <img class="logo" alt="Netwire logo" src="./assets/images/zitadel-logo-solo-light.svg" />
           } @else {
-            <img alt="zitadel logo" class="logo" src="./assets/images/zitadel-logo-solo-dark.svg" />
+            <img alt="Netwire logo" class="logo" src="./assets/images/zitadel-logo-solo-dark.svg" />
           }
         </a>
       }

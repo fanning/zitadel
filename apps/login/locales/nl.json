@@ -1,7 +1,7 @@
 {
   "common": {
     "back": "Terug",
-    "title": "Inloggen met Zitadel"
+    "title": "Inloggen met Netwire"
   },
   "accounts": {
     "title": "Accounts",
@@ -324,7 +324,7 @@
       "description": "Geef e-mail, voornaam en achternaam op om te registreren."
     },
     "title": "Registreren",
-    "description": "Maak jouw Zitadel-account aan.",
+    "description": "Maak jouw Netwire-account aan.",
     "noMethodAvailableWarning": "Geen authenticatiemethode beschikbaar. Neem contact op met jouw beheerder.",
     "selectMethod": "Selecteer de methode waarmee u wilt verifiëren",
     "agreeTo": "Om te registreren moet u akkoord gaan met de voorwaarden",
@@ -452,7 +452,7 @@
     "request": {
       "title": "{appName} wil verbinding maken",
       "description": "{appName} krijgt toegang tot:",
-      "disclaimer": "Door op Toestaan te klikken geeft u {appName} en Zitadel toestemming om jouw informatie te gebruiken overeenkomstig hun respectieve servicevoorwaarden en privacybeleid. U kunt deze toegang op elk moment intrekken.",
+      "disclaimer": "Door op Toestaan te klikken geeft u {appName} en Netwire toestemming om jouw informatie te gebruiken overeenkomstig hun respectieve servicevoorwaarden en privacybeleid. U kunt deze toegang op elk moment intrekken.",
       "submit": "Toestaan",
       "deny": "Weigeren"
     },

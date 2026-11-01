@@ -1,7 +1,7 @@
 {
-  "name": "console",
-  "short_name": "console",
-  "theme_color": "#1976d2",
+  "name": "Netwire Console",
+  "short_name": "Netwire",
+  "theme_color": "#1f7a4d",
   "background_color": "#fafafa",
   "display": "standalone",
   "scope": "/",

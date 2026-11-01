@@ -1,7 +1,7 @@
 {
   "common": {
     "back": "Atrás",
-    "title": "Iniciar sesión con Zitadel"
+    "title": "Iniciar sesión con Netwire"
   },
   "accounts": {
     "title": "Cuentas",
@@ -324,7 +324,7 @@
       "description": "No se proporcionaron datos suficientes para el registro."
     },
     "title": "Registrarse",
-    "description": "Crea tu cuenta Zitadel.",
+    "description": "Crea tu cuenta Netwire.",
     "noMethodAvailableWarning": "No hay métodos de autenticación disponibles. Por favor, contacta a tu administrador.",
     "selectMethod": "Selecciona el método con el que deseas autenticarte",
     "agreeTo": "Para registrarte debes aceptar los términos y condiciones",
@@ -452,7 +452,7 @@
     "request": {
       "title": "{appName} desea conectarse:",
       "description": "{appName} tendrá acceso a:",
-      "disclaimer": "Al hacer clic en Permitir, autorizas a {appName} y a Zitadel a usar tu información de acuerdo con sus respectivos términos de servicio y políticas de privacidad. Puedes revocar este acceso en cualquier momento.",
+      "disclaimer": "Al hacer clic en Permitir, autorizas a {appName} y a Netwire a usar tu información de acuerdo con sus respectivos términos de servicio y políticas de privacidad. Puedes revocar este acceso en cualquier momento.",
       "submit": "Permitir",
       "deny": "Denegar"
     },

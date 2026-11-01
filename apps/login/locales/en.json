@@ -1,7 +1,7 @@
 {
   "common": {
     "back": "Back",
-    "title": "Login with Zitadel"
+    "title": "Login with Netwire"
   },
   "accounts": {
     "title": "Accounts",
@@ -324,7 +324,7 @@
       "description": "Provide email, first and last name to register."
     },
     "title": "Register",
-    "description": "Create your Zitadel account.",
+    "description": "Create your Netwire account.",
     "noMethodAvailableWarning": "No authentication method available. Please contact your administrator.",
     "selectMethod": "Select the method you would like to authenticate",
     "agreeTo": "To register you must agree to the terms and conditions",
@@ -452,7 +452,7 @@
     "request": {
       "title": "{appName} would like to connect",
       "description": "{appName} will have access to:",
-      "disclaimer": "By clicking Allow, you allow {appName} and Zitadel to use your information in accordance with their respective terms of service and privacy policies. You can revoke this access at any time.",
+      "disclaimer": "By clicking Allow, you allow {appName} and Netwire to use your information in accordance with their respective terms of service and privacy policies. You can revoke this access at any time.",
       "usercode": "Code displayed on your device:",
       "submit": "Allow",
       "deny": "Deny"

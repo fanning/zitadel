@@ -1,7 +1,7 @@
 {
   "common": {
     "back": "返回",
-    "title": "使用 Zitadel 登录"
+    "title": "使用 Netwire 登录"
   },
   "accounts": {
     "title": "账户",
@@ -324,7 +324,7 @@
       "description": "请提供所有必需的数据。"
     },
     "title": "注册",
-    "description": "创建您的 Zitadel 账户。",
+    "description": "创建您的 Netwire 账户。",
     "noMethodAvailableWarning": "没有可用的认证方法。请联系您的系统管理员。",
     "selectMethod": "选择您想使用的认证方法",
     "agreeTo": "注册即表示您同意条款和条件",
@@ -452,7 +452,7 @@
     "request": {
       "title": "{appName} 想要连接：",
       "description": "{appName} 将访问：",
-      "disclaimer": "点击“允许”即表示您允许此应用程序和 Zitadel 根据其各自的服务条款和隐私政策使用您的信息。您可以随时撤销此访问权限。",
+      "disclaimer": "点击“允许”即表示您允许此应用程序和 Netwire 根据其各自的服务条款和隐私政策使用您的信息。您可以随时撤销此访问权限。",
       "submit": "允许",
       "deny": "拒绝"
     },
