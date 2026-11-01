@@ -15,7 +15,7 @@
   "containerDefinitions": [
     {
       "name": "zitadel",
-      "image": "908590140418.dkr.ecr.us-east-1.amazonaws.com/netwire-auth:netwire-6b2afcd",
+      "image": "908590140418.dkr.ecr.us-east-1.amazonaws.com/netwire-auth:netwire-32b5f7e64",
       "essential": true,
       "command": [
         "start-from-setup",
@@ -168,19 +168,19 @@
       "secrets": [
         {
           "name": "ZITADEL_MASTERKEY",
-          "valueFrom": "arn:aws:secretsmanager:us-east-1:908590140418:secret:netwire/zitadel/masterkey"
+          "valueFrom": "arn:aws:secretsmanager:us-east-1:908590140418:secret:netwire/zitadel/masterkey-uELuw9"
         },
         {
           "name": "ZITADEL_DATABASE_POSTGRES_USER_PASSWORD",
-          "valueFrom": "arn:aws:secretsmanager:us-east-1:908590140418:secret:netwire/zitadel/db-password"
+          "valueFrom": "arn:aws:secretsmanager:us-east-1:908590140418:secret:netwire/zitadel/db-password-cI2kAR"
         },
         {
           "name": "ZITADEL_DATABASE_POSTGRES_ADMIN_PASSWORD",
-          "valueFrom": "arn:aws:secretsmanager:us-east-1:908590140418:secret:netwire/zitadel/db-password"
+          "valueFrom": "arn:aws:secretsmanager:us-east-1:908590140418:secret:netwire/zitadel/db-password-cI2kAR"
         },
         {
           "name": "ZITADEL_FIRSTINSTANCE_ORG_HUMAN_PASSWORD",
-          "valueFrom": "arn:aws:secretsmanager:us-east-1:908590140418:secret:netwire/zitadel/admin-password"
+          "valueFrom": "arn:aws:secretsmanager:us-east-1:908590140418:secret:netwire/zitadel/admin-password-Ye4OMo"
         }
       ],
       "logConfiguration": {
@@ -206,7 +206,7 @@
     },
     {
       "name": "login",
-      "image": "908590140418.dkr.ecr.us-east-1.amazonaws.com/netwire-auth-login:netwire-6b2afcd",
+      "image": "908590140418.dkr.ecr.us-east-1.amazonaws.com/netwire-auth-login:netwire-32b5f7e64",
       "essential": true,
       "portMappings": [
         {
@@ -245,11 +245,11 @@
       "secrets": [
         {
           "name": "ZITADEL_SERVICE_USER_TOKEN",
-          "valueFrom": "arn:aws:secretsmanager:us-east-1:908590140418:secret:netwire/zitadel/login-client-pat"
+          "valueFrom": "arn:aws:secretsmanager:us-east-1:908590140418:secret:netwire/zitadel/login-client-pat-bp5dQw"
         },
         {
           "name": "ZITADEL_SESSION_COOKIE_SECRET",
-          "valueFrom": "arn:aws:secretsmanager:us-east-1:908590140418:secret:netwire/zitadel/login-cookie-secret"
+          "valueFrom": "arn:aws:secretsmanager:us-east-1:908590140418:secret:netwire/zitadel/login-cookie-secret-1o8v4t"
         }
       ],
       "logConfiguration": {
