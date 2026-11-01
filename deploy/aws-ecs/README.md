@@ -9,8 +9,9 @@ shared `valuesetters` application load balancer.
 | Task definition | `netwire-auth-taskdef.json` (containers `zitadel` :8080 and `login` :3000) |
 | Images | ECR `netwire-auth` (from `apps/api/Dockerfile`) and `netwire-auth-login` (from `apps/login/Dockerfile`), tagged `netwire-<git short sha>` |
 | Database | Aurora PostgreSQL cluster `valuesetters`, database `netwire_auth_db`, role `auth_service_user`, `sslmode=require` |
-| Secrets | Secrets Manager `netwire/zitadel/{masterkey,db-password,admin-password,login-client-pat,login-cookie-secret}` |
-| ALB rules (443) | prio 30 `auth.netwire.com` + `/ui/v2/login*` -> tg `netwire-auth-login`; prio 31 `/` -> `netwire-auth-login`; prio 32 host -> tg `netwire-auth` |
+| Secrets | Secrets Manager `netwire/zitadel/{masterkey,db-password,admin-password,login-client-pat,login-cookie-secret,system-user-hive-key}` |
+| System API user | `hive` (RSA key in `netwire/zitadel/system-user-hive-key`, public key in the task definition as `ZITADEL_SYSTEMAPIUSERS`); signs RS256 JWTs (`iss`=`sub`=`hive`, `aud`=`https://auth.netwire.com`) for admin/system API automation such as branding |
+| ALB rules (443) | prio 30 `auth.netwire.com` + `/ui/v2/login*` -> tg `netwire-auth-login`; prio 31 `/` -> 302 `/ui/console`; prio 32 host -> tg `netwire-auth`. The legacy `netwire.com, *.netwire.com` rule was moved from prio 18 to 33 so it no longer shadows this host. |
 | DNS | Netlify zone `netwire.com`, CNAME `auth` -> ALB hostname |
 | Logs | CloudWatch `/ecs/netwire-auth`, `/ecs/netwire-auth-login` |
 
@@ -51,3 +52,10 @@ curl -s https://auth.netwire.com/.well-known/openid-configuration | jq .issuer
 
 Keep this branch rebased on upstream release tags (`git fetch upstream --tags`);
 the rebrand commit touches only assets, manifests, titles and locale strings.
+
+## Known upstream quirk
+
+v4.20.0's login build copies `public/` to the standalone root while the custom
+server serves static files from the app directory, so favicons and logos 404 in
+the stock image. The login Dockerfile in this fork copies `public` beside the
+server as well.

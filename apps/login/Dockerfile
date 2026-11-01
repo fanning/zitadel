@@ -6,6 +6,10 @@ RUN addgroup --system --gid 1001 nodejs && \
 RUN mkdir -p /.env-file && touch /.env-file/.env && chown -R nextjs:nodejs /.env-file
 
 COPY --chown=nextjs:nodejs .next/standalone ./
+# Netwire: the standalone build places `public` at the workspace root, but the
+# custom server serves static files from its own app directory, so favicons and
+# logos return 404 unless `public` also sits beside it.
+COPY --chown=nextjs:nodejs public ./apps/login/public
 
 USER nextjs
 ENV HOSTNAME="::" \
